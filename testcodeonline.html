@@ -12,6 +12,9 @@
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121c19;--panel:#192623;--ink:#e3ebe6;--mut:#93a39c;--line:#2c3d38;--acc:#5cc2a6;--on:#0c1613;--err:#ff8a80;--errbg:#3a1f1d;--warn:#e5b858;--warnbg:#3a301a;--info:#8ab4f0;--sel:#253a34}}
 :root[data-theme="dark"]{--bg:#121c19;--panel:#192623;--ink:#e3ebe6;--mut:#93a39c;--line:#2c3d38;--acc:#5cc2a6;--on:#0c1613;--err:#ff8a80;--errbg:#3a1f1d;--warn:#e5b858;--warnbg:#3a301a;--info:#8ab4f0;--sel:#253a34}
+:root{--c-tag:#c2255c;--c-at:#9a6700;--c-st:#1b7a3d;--c-kw:#7b3fc9;--c-var:#0a5fb4;--c-fn:#0f766e;--c-num:#b45309;--c-cm:#7a8a84}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-tag:#ff7aa8;--c-at:#e5b858;--c-st:#8fd694;--c-kw:#c9a0ff;--c-var:#7cc4ff;--c-fn:#5eead4;--c-num:#ffb27a;--c-cm:#6f8279}}
+:root[data-theme="dark"]{--c-tag:#ff7aa8;--c-at:#e5b858;--c-st:#8fd694;--c-kw:#c9a0ff;--c-var:#7cc4ff;--c-fn:#5eead4;--c-num:#ffb27a;--c-cm:#6f8279}
 html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
 *{box-sizing:border-box}
 body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:14px/1.45 "Be Vietnam Pro",system-ui,sans-serif;display:flex;flex-direction:column}
@@ -42,7 +45,20 @@ section{min-width:0;min-height:0;display:flex;flex-direction:column}
 .wrap{position:relative;flex:1;min-width:0;overflow:hidden}
 .hl{position:absolute;left:0;right:0;top:0;padding:8px 0;pointer-events:none}
 .hl div{height:20px}.hl .error{background:var(--errbg)}.hl .warn{background:var(--warnbg)}
-textarea{position:absolute;inset:0;width:100%;height:100%;margin:0;border:0;resize:none;background:transparent;color:var(--ink);font:inherit;padding:8px 10px;white-space:pre;overflow:auto;tab-size:2}
+textarea{position:absolute;inset:0;width:100%;height:100%;margin:0;border:0;resize:none;background:transparent;color:transparent;caret-color:var(--ink);font:inherit;font-variant-ligatures:none;padding:8px 10px;white-space:pre;overflow:auto;tab-size:2}
+textarea::placeholder{color:var(--mut);opacity:1}
+textarea::selection{background:color-mix(in srgb,var(--acc) 32%,transparent);color:transparent}
+.syn{position:absolute;left:0;top:0;margin:0;padding:8px 10px;font:inherit;font-variant-ligatures:none;white-space:pre;tab-size:2;color:var(--ink);pointer-events:none}
+.tg{color:var(--c-tag)}
+.vr{color:var(--c-var)}
+.fn{color:var(--c-fn)}
+.idv{color:var(--c-num)}
+.at,.pr{color:var(--c-at)}.ev,.kw{color:var(--c-kw)}.st{color:var(--c-st)}.nm{color:var(--c-num)}.cm,.dt{color:var(--c-cm)}.pn{color:var(--mut)}.clv,.cl{color:var(--c-fn)}
+.mt{box-shadow:0 0 0 1.5px var(--c-tag);border-radius:3px}#mt{cursor:pointer;color:var(--c-tag);font-weight:600}
+.pill{display:inline-block;padding:1px 8px;font:600 12.5px "JetBrains Mono",monospace;border-radius:5px}
+.kd{display:inline-block;padding:0 7px;font:600 11.5px "JetBrains Mono",monospace;border:1px solid currentColor;border-radius:4px;color:var(--mut)}
+.k-const{color:var(--c-kw)}.k-let{color:var(--c-var)}.k-var{color:var(--c-at)}
+.tag .pn{opacity:.8}.tag.bad .tg{color:var(--err)}
 nav{display:flex;overflow-x:auto;border-bottom:1px solid var(--line);flex:none}
 nav button{border:0;border-radius:0;background:none;border-bottom:2px solid transparent;white-space:nowrap}
 nav button.on{border-bottom-color:var(--acc);font-weight:600}
@@ -70,6 +86,7 @@ h3{font-size:13px;margin:6px 0;color:var(--mut)}
 .c{font-family:"JetBrains Mono",monospace;font-size:12.5px;padding:3px 0;border-bottom:1px solid var(--line);white-space:pre-wrap;word-break:break-word}
 .c.error{color:var(--err)}.c.warn{color:var(--warn)}
 .u{color:var(--warn)}
+.mx-1{margin-right:.25rem!important;margin-left:.25rem!important}.mx-2{margin-right:.5rem!important;margin-left:.5rem!important}.mx-3{margin-right:1rem!important;margin-left:1rem!important}.mx-4{margin-right:1.5rem!important;margin-left:1.5rem!important}.mx-5{margin-right:3rem!important;margin-left:3rem!important}.mx-auto{margin-right:auto!important;margin-left:auto!important}.my-0{margin-top:0!important;margin-bottom:0!important}.my-1{margin-top:.25rem!important;margin-bottom:.25rem!important}.my-2{margin-top:.5rem!important;margin-bottom:.5rem!important}.my-3{margin-top:1rem!important;margin-bottom:1rem!important}.my-4{margin-top:1.5rem!important;margin-bottom:1.5rem!important}.my-5{margin-top:3rem!important;margin-bottom:3rem!important}.my-auto{margin-top:auto!important;margin-bottom:auto!important}.mt-0{margin-top:0!important}.mt-1{margin-top:.25rem!important}.mt-2{margin-top:.5rem!important}.mt-3{margin-top:1rem!important}.mt-4{margin-top:1.5rem!important}.mt-5{margin-top:3rem!important}.mt-auto{margin-top:auto!important}.me-0{margin-right:0!important}.me-1{margin-right:.25rem!important}.me-2{margin-right:.5rem!important}.me-3{margin-right:1rem!important}.me-4{margin-right:1.5rem!important}.me-5{margin-right:3rem!important}
 @media (max-width:900px){main{grid-template-columns:1fr;grid-template-rows:minmax(120px,var(--lh,1fr)) 10px minmax(120px,1fr)}.ed{border-right:0;border-bottom:1px solid var(--line)}.split{cursor:row-resize}.split::after{left:50%;top:3px;width:44px;height:4px;margin:0 0 0 -22px}}
 </style>
 </head>
@@ -85,10 +102,11 @@ h3{font-size:13px;margin:6px 0;color:var(--mut)}
   <button id="clear">Xóa</button>
   <span id="sum"></span><span id="saved" class="hint" aria-live="polite"></span>
 </header>
+<span id="mt" class="hint mx-4"></span>
 <main>
   <section>
     <div class="ed"><div class="gut" id="gut"></div>
-      <div class="wrap"><div class="hl" id="hl"></div><textarea id="ta" spellcheck="false" aria-label="Mã nguồn" placeholder="Dán hoặc gõ code HTML vào đây để kiểm tra…"></textarea></div></div>
+      <div class="wrap"><div class="hl" id="hl"></div><pre class="syn" id="syn" aria-hidden="true"></pre><textarea id="ta" spellcheck="false" aria-label="Mã nguồn" placeholder="Dán hoặc gõ code HTML vào đây để kiểm tra…"></textarea></div></div>
   </section>
   <div class="split" id="split" role="separator" aria-orientation="vertical" tabindex="0" title="Kéo để đổi kích thước (nhấp đúp để đặt lại)"></div>
   <section>
@@ -254,10 +272,104 @@ function analyzeJS(H){
   return{decl,funcs,issues,refs,calls,fnames};
 }
 
+/* ---------- Tô màu cú pháp ---------- */
+const KW=new Set('const let var function return if else for while do switch case break continue new class extends import export from default try catch finally throw async await typeof instanceof in of delete void yield static get set super this true false null undefined NaN Infinity'.split(' '));
+const tk=(c,t)=>t===''?'':c?`<span class="${c}">${esc(t)}</span>`:esc(t);
+function synJS(c,V,F){
+  const re=/(\/\/[^\n]*|\/\*[\s\S]*?(?:\*\/|$))|("(?:\\.|[^"\\\n])*"?|'(?:\\.|[^'\\\n])*'?|`(?:\\[\s\S]|[^`\\])*`?)|(\d[\w.]*)|([A-Za-z_$][\w$]*)|([\s\S])/g,q=/\s*\(/y;
+  let o='',m,pw='',pc='';
+  while((m=re.exec(c))){
+    if(m[1])o+=tk('cm',m[1]);
+    else if(m[2]){o+=tk('st',m[2]);pc='"';pw=''}
+    else if(m[3]){o+=tk('nm',m[3]);pc='0';pw=''}
+    else if(m[4]){
+      const w=m[4];q.lastIndex=re.lastIndex;const call=q.test(c);let k='';
+      if(pc==='.')k=call?'fn':'';
+      else if(KW.has(w))k='kw';
+      else if(F.has(w)||call)k='fn';
+      else if(V.has(w))k='vr';
+      if((k==='fn'||k==='vr')&&/^(const|let|var|function|class)$/.test(pw))k+=' vd';
+      o+=tk(k,w);pw=w;pc='w';
+    }else{o+=esc(m[5]);if(/\S/.test(m[5])){pc=m[5];pw=''}}
+  }
+  return o;
+}
+function synCSS(c){
+  let d=0,pd=0;
+  return c.replace(/(\/\*[\s\S]*?(?:\*\/|$))|("(?:\\.|[^"\\\n])*"?|'(?:\\.|[^'\\\n])*'?)|([{}])|([()\[\]])|(--[\w-]+)|(@[\w-]+)|(\.[A-Za-z_-][\w-]*)|(#[\w-]+)|(-?\d*\.?\d+[a-z%]*)|(::?[A-Za-z-]+)|([A-Za-z-][\w-]*)|([\s\S])/g,
+  (m,cm,st,br,pa,vr,at,cl,hx,nm,ps,w,ot,off,str)=>{
+    if(cm)return tk('cm',cm);if(st)return tk('st',st);
+    if(br){d=Math.max(0,d+(br==='{'?1:-1));return tk('pn',br)}
+    if(pa){pd=Math.max(0,pd+(/[(\[]/.test(pa)?1:-1));return tk('pn',pa)}
+    if(vr)return tk('vr',vr);if(at)return tk('kw',at);
+    if(cl)return tk(pd?'':'cl',cl);
+    if(hx)return tk(d?'nm':pd?'':'idv',hx);
+    if(nm)return tk('nm',nm);
+    if(ps)return tk(d||pd?'':'kw',ps);
+    if(w){if(pd)return esc(w);if(d)return tk(/^\s*:/.test(str.slice(off+m.length,off+m.length+24))?'pr':'',w);return tk('tg',w)}
+    return esc(ot);
+  });
+}
+function synHTML(s,V,F,T,M){
+  const n=s.length,tr=/<(\/?)([A-Za-z][\w:-]*)/y,ar=/(\s+)|(\/?>)|([^\s=>\/"'<]+)|(=)|("[^"]*"?|'[^']*'?)|([\s\S])/y;
+  let o='',i=0;
+  while(i<n){
+    if(s[i]!=='<'){let e=s.indexOf('<',i);if(e<0)e=n;o+=esc(s.slice(i,e));i=e;continue}
+    if(s.startsWith('<!--',i)){let e=s.indexOf('-->',i+4);e=e<0?n:e+3;o+=tk('cm',s.slice(i,e));i=e;continue}
+    if(s[i+1]==='!'||s[i+1]==='?'){let e=s.indexOf('>',i);e=e<0?n:e+1;o+=tk('dt',s.slice(i,e));i=e;continue}
+    tr.lastIndex=i;const m=tr.exec(s);
+    if(!m){o+='&lt;';i++;continue}
+    const name=m[2].toLowerCase(),close=!!m[1],st0=i,L0=o.length;let an='',self=false;
+    o+=tk('pn','<'+m[1])+tk('tg',m[2]);i=tr.lastIndex;
+    while(i<n&&s[i]!=='<'){
+      ar.lastIndex=i;const a=ar.exec(s);i=ar.lastIndex;
+      if(a[1])o+=a[1];
+      else if(a[2]){o+=tk('pn',a[2]);self=a[2]==='/>';break}
+      else if(a[3]){an=a[3].toLowerCase();o+=tk(/^on/.test(an)?'at ev':'at',a[3])}
+      else if(a[4])o+=tk('pn','=');
+      else if(a[5]){const q=a[5][0],cl=a[5].length>1&&a[5].endsWith(q),inn=a[5].slice(1,cl?-1:undefined);
+        o+=/^on/.test(an)?tk('pn',q)+synJS(inn,V,F)+(cl?tk('pn',q):''):tk(an==='id'?'idv':an==='class'?'clv':'st',a[5])}
+      else o+=esc(a[6]);
+    }
+    if(T)T.push({s:st0,e:i,name,close,self});
+    if(M&&M.has(st0))o=o.slice(0,L0)+'<span class="mt">'+o.slice(L0)+'</span>';
+    if(!close&&(name==='script'||name==='style')){
+      const x=s.slice(i).search(new RegExp('</'+name+'\\b','i')),e=x<0?n:i+x,inn=s.slice(i,e);
+      o+=name==='script'?synJS(inn,V,F):synCSS(inn);i=e;
+    }
+  }
+  return o;
+}
+function sets(){const V=new Set(),F=new Set();if(last){last.J.decl.forEach(d=>V.add(d.name));last.J.funcs.forEach(f=>F.add(f.name))}return{V,F}}
+let curT=[],curKey='';
+function pairs(T){const st=[],P={};T.forEach((t,k)=>{if(t.close){let j=st.length-1;while(j>=0&&T[st[j]].name!==t.name)j--;if(j>=0){const o=st[j];P[o]=k;P[k]=o;st.length=j}}else if(!t.self&&!VOID.has(t.name))st.push(k)});return P}
+function matchSet(T,a,b){
+  const M=new Set();let k=T.findIndex(t=>a>=t.s&&a<=t.e);
+  if(k<0&&b>a)k=T.findIndex(t=>t.s>=a&&t.s<b);
+  if(k<0)return{M,k:-1,o:-1};
+  const P=pairs(T),o=P[k]===undefined?-1:P[k];
+  if(o>=0){M.add(T[k].s);M.add(T[o].s)}
+  return{M,k,o};
+}
+function showMt(r,v){
+  const e=$('#mt');e.textContent='';e.removeAttribute('data-l');
+  if(r.k<0)return;const t=curT[r.k],ln=x=>v.slice(0,x).split('\n').length;
+  if(r.o<0){if(!t.self&&!VOID.has(t.name))e.textContent=`<${t.name}> chưa có thẻ ${t.close?'mở':'đóng'}`;return}
+  const u=curT[r.o];e.textContent=`<${t.name}> ${t.close?'đóng':'mở'} dòng ${ln(t.s)} ↔ ${t.close?'mở':'đóng'} dòng ${ln(u.s)}`;e.dataset.l=ln(u.s);
+}
+function paintSyn(){
+  const S=sets(),v=ta.value,T=[];let h=synHTML(v,S.V,S.F,T,null);
+  const r=document.activeElement===ta?matchSet(T,ta.selectionStart,ta.selectionEnd):{M:new Set(),k:-1,o:-1};
+  if(r.M.size)h=synHTML(v,S.V,S.F,[],r.M);
+  curT=T;curKey=[...r.M].join();$('#syn').innerHTML=h+'\n';showMt(r,v);
+}
+function tagLabel(t){const g=k=>(t.attrs.find(a=>a[0]===k)||[])[1],id=g('id'),cl=g('class');
+  return `<span class="pn">&lt;</span><span class="tg pill">${esc(t.name)}</span>${id?` <span class="idv">#${esc(id)}</span>`:''}${cl?` <span class="clv">.${esc(cl.trim().split(/\s+/)[0])}</span>`:''}<span class="pn">&gt;</span>`}
+
 /* ---------- Giao diện ---------- */
 const KEY='html-tester:code',KS='html-tester:size';
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}};
-function save(){const ok=store.set(KEY,ta.value);$('#saved').textContent=ok?'Đã lưu tự động':'Không lưu được';}
+function save(){const ok=store.set(KEY,ta.value);$('#saved').textContent=ok?' ':'Không lưu được';}
 const ta=$('#ta');let G=[],cons=[],last=null,timer;
 function analyze(){
   const src=ta.value,H=parseHTML(src),J=analyzeJS(H);last={H,J};save();
@@ -268,21 +380,21 @@ function analyze(){
   all.forEach(x=>{if(x.sev!=='info'&&mark[x.line]!=='error')mark[x.line]=x.sev});
   $('#gut').innerHTML=lines.map((_,k)=>`<div class="${mark[k+1]||''}">${k+1}</div>`).join('');
   $('#hl').innerHTML=lines.map((_,k)=>`<div class="${mark[k+1]||''}"></div>`).join('');
-  syncScroll();
+  paintSyn();syncScroll();
   $('#iss').innerHTML=all.length?all.map(x=>`<div class="iss" data-l="${x.line}"><span class="chip ${x.sev}">${{error:'Lỗi',warn:'Cảnh báo',info:'Gợi ý'}[x.sev]}</span><span class="ln">dòng ${x.line}</span><div>${esc(x.msg)}${x.hint?`<div class="hint">${esc(x.hint)}</div>`:''}</div></div>`).join(''):`<div class="ok">${src.trim()?'Không phát hiện lỗi nào.':'Dán hoặc gõ code vào khung bên trái để kiểm tra.'}</div>`;
   const nb=$('#n-iss');nb.textContent=all.length;nb.className=ne?'e':'';
   renderVars();
   const used=n=>(J.calls[n]||0);
-  $('#fn').innerHTML=J.funcs.length?`<table><tr><th>Tên</th><th>Kiểu</th><th>Tham số</th><th>Phạm vi</th><th>Dòng</th><th>Gọi</th></tr>${J.funcs.map(f=>`<tr><td class="m">${f.async?'async ':''}${esc(f.name)}</td><td>${f.kind}</td><td class="m">${esc(f.params.join(', '))||'—'}</td><td>${esc(f.scope)}</td><td class="m">${f.line}</td><td>${used(f.name)||(f.name==='(ẩn danh)'?'—':'<span class="u">chưa gọi</span>')}</td></tr>`).join('')}</table>`:'<div class="hint">Chưa có hàm nào.</div>';
+  $('#fn').innerHTML=J.funcs.length?`<table><tr><th>Tên</th><th>Kiểu</th><th>Tham số</th><th>Phạm vi</th><th>Dòng</th><th>Gọi</th></tr>${J.funcs.map(f=>`<tr><td class="m">${f.async?'<span class="kw">async</span> ':''}<span class="pill fn">${esc(f.name)}</span></td><td>${f.kind}</td><td class="m">${f.params.length?f.params.map(p=>`<span class="vr">${esc(p)}</span>`).join(', '):'—'}</td><td>${esc(f.scope)}</td><td class="m">${f.line}</td><td>${used(f.name)||(f.name==='(ẩn danh)'?'—':'<span class="chip warn">chưa gọi</span>')}</td></tr>`).join('')}</table>`:'<div class="hint">Chưa có hàm nào.</div>';
   $('#n-fn').textContent=J.funcs.length;
   const cnt={};H.tags.forEach(t=>cnt[t.name]=(cnt[t.name]||0)+1);
-  $('#tg').innerHTML=H.tags.length?`<div class="chips">${Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<span>&lt;${k}&gt; × ${v}</span>`).join('')}</div><h3>Cấu trúc thẻ (thẻ lỗi tô đỏ)</h3>${H.tags.slice(0,600).map(t=>`<div class="tag ${t.bad?'bad':''}" data-l="${t.line}" style="cursor:pointer">${'  '.repeat(t.depth)}&lt;${t.name}${(t.attrs.find(a=>a[0]==='id')||[])[1]?' #'+esc(t.attrs.find(a=>a[0]==='id')[1]):''}${(t.attrs.find(a=>a[0]==='class')||[])[1]?' .'+esc(t.attrs.find(a=>a[0]==='class')[1].split(/\s+/)[0]):''}&gt;  <span class="hint">dòng ${t.line}${t.bad?' · chưa đóng':''}</span></div>`).join('')}`:'<div class="hint">Chưa có thẻ HTML.</div>';
+  $('#tg').innerHTML=H.tags.length?`<div class="chips">${Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<span class="tg">&lt;${k}&gt; × ${v}</span>`).join('')}</div><h3>Cấu trúc thẻ (thẻ lỗi tô đỏ)</h3>${H.tags.slice(0,600).map(t=>`<div class="tag ${t.bad?'bad':''}" data-l="${t.line}" style="cursor:pointer">${'  '.repeat(t.depth)}${tagLabel(t)}  <span class="hint">dòng ${t.line}${t.bad?' · chưa đóng':''}</span></div>`).join('')}`:'<div class="hint">Chưa có thẻ HTML.</div>';
   $('#n-tg').textContent=H.tags.length;
 }
 function renderVars(){
-  if(!last)return;const J=last.J;
-  let h=J.decl.length?`<table><tr><th>Tên</th><th>Loại</th><th>Phạm vi</th><th>Dòng</th><th>Giá trị khởi tạo</th><th>Dùng</th></tr>${J.decl.map(d=>`<tr><td class="m">${esc(d.name)}</td><td>${d.kind}</td><td>${esc(d.scope)}</td><td class="m">${d.line}</td><td class="m">${d.init==null?'—':esc(d.init.length>60?d.init.slice(0,60)+'…':d.init)}</td><td>${J.refs[d.name]||'<span class="u">0</span>'}</td></tr>`).join('')}</table>`:'<div class="hint">Chưa có biến nào được khai báo.</div>';
-  if(G.length)h+=`<h3>Biến toàn cục sau khi chạy thử (giá trị thực)</h3><table><tr><th>Tên</th><th>Kiểu</th><th>Giá trị</th></tr>${G.map(g=>`<tr><td class="m">${esc(g[0])}</td><td>${esc(g[1])}</td><td class="m">${esc(g[2])}</td></tr>`).join('')}</table><div class="hint">let/const ở cấp cao nhất không nằm trong window nên không hiện ở bảng này.</div>`;
+  if(!last)return;const J=last.J,S=sets();
+  let h=J.decl.length?`<table><tr><th>Tên</th><th>Loại</th><th>Phạm vi</th><th>Dòng</th><th>Giá trị khởi tạo</th><th>Dùng</th></tr>${J.decl.map(d=>`<tr><td class="m"><span class="pill vr">${esc(d.name)}</span></td><td><span class="kd ${({const:'k-const',let:'k-let',var:'k-var'})[d.kind]||''}">${d.kind}</span></td><td>${esc(d.scope)}</td><td class="m">${d.line}</td><td class="m">${d.init==null?'—':synJS(d.init.length>60?d.init.slice(0,60)+'…':d.init,S.V,S.F)}</td><td>${J.refs[d.name]||'<span class="chip warn">0 · chưa dùng</span>'}</td></tr>`).join('')}</table>`:'<div class="hint">Chưa có biến nào được khai báo.</div>';
+  if(G.length)h+=`<h3>Biến toàn cục sau khi chạy thử (giá trị thực)</h3><table><tr><th>Tên</th><th>Kiểu</th><th>Giá trị</th></tr>${G.map(g=>`<tr><td class="m"><span class="pill vr">${esc(g[0])}</span></td><td><span class="kd">${esc(g[1])}</span></td><td class="m">${esc(g[2])}</td></tr>`).join('')}</table><div class="hint">let/const ở cấp cao nhất không nằm trong window nên không hiện ở bảng này.</div>`;
   $('#var').innerHTML=h;$('#n-var').textContent=J.decl.length;
 }
 function renderCons(){$('#con').innerHTML=(cons.length?'<button id="cc" style="margin-bottom:8px">Xóa console</button>':'<div class="hint">Bấm "Chạy thử" để xem console.log và lỗi lúc chạy.</div>')+cons.map(c=>`<div class="c ${c.t}">${esc(c.a)}</div>`).join('');
@@ -305,13 +417,13 @@ addEventListener('message',e=>{
   if(e.source!==$('#frame').contentWindow||!e.data||!e.data.__t)return;
   if(e.data.t==='globals'){G=e.data.a;renderVars()}else{cons.push({t:e.data.t,a:e.data.a});renderCons()}
 });
-function syncScroll(){$('#gut').scrollTop=ta.scrollTop;$('#hl').style.transform=`translateY(${-ta.scrollTop}px)`}
+function syncScroll(){$('#gut').scrollTop=ta.scrollTop;$('#hl').style.transform=`translateY(${-ta.scrollTop}px)`;$('#syn').style.transform=`translate(${-ta.scrollLeft}px,${-ta.scrollTop}px)`}
 function goLine(l){
   const lines=ta.value.split('\n');let s=0;for(let k=0;k<l-1;k++)s+=lines[k].length+1;
   ta.focus();ta.setSelectionRange(s,s+(lines[l-1]||'').length);ta.scrollTop=Math.max(0,(l-4)*20);syncScroll();
 }
 ta.addEventListener('scroll',syncScroll);
-ta.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>{analyze();if($('#auto').checked)run()},250)});
+ta.addEventListener('input',()=>{paintSyn();syncScroll();clearTimeout(timer);timer=setTimeout(()=>{analyze();if($('#auto').checked)run()},250)});
 ta.addEventListener('keydown',e=>{
   if(e.key==='Tab'){e.preventDefault();document.execCommand('insertText',false,'  ')}
   if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();run();show('pv')}
@@ -350,6 +462,8 @@ $('#dl').onclick=async()=>{
 };
 function saveSize(){store.set(KS,JSON.stringify([mn.style.getPropertyValue('--lw'),mn.style.getPropertyValue('--lh')]))}
 try{const z=JSON.parse(store.get(KS)||'null');if(z){if(z[0])mn.style.setProperty('--lw',z[0]);if(z[1])mn.style.setProperty('--lh',z[1])}}catch(e){}
+document.addEventListener('selectionchange',()=>{if(document.activeElement!==ta)return;const r=matchSet(curT,ta.selectionStart,ta.selectionEnd);if([...r.M].join()!==curKey)paintSyn();else showMt(r,ta.value)});
+ta.addEventListener('blur',paintSyn);
 addEventListener('pagehide',save);
 const sv=store.get(KEY);ta.value=(sv===null||sv===SAMPLE)?'':sv;analyze();renderCons();run();
 </script>
